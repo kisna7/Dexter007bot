@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+        
+	<category>
+        <pattern>HELLO BOT</pattern>
+        <template>HI, CAN YOU HELP ME TO GET INFORMATION ABOUT YOUR REQUIREMENT?</template>
+    </category>
+    <category>
+        <pattern>YES</pattern>
+        <that>HI CAN YOU HELP ME TO GET INFORMATION ABOUT YOUR REQUIREMENT</that>
+        <template>WHAT ARE YOU? (VICTIM, NGO, ARMY).</template>
+    </category>
+    <category>
+        <pattern>VICTIM</pattern>
+        <that>WHAT ARE YOU VICTIM NGO ARMY</that>
+        <template>
+            <think><set name="user_type">VICTIM</set></think>
+            PLEASE DESCRIBE THE EVENT.
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>PLEASE DESCRIBE THE EVENT</that>
+        <template>SELECT REQUIREMENT (CLOTHING, FOOD, WATER, MEDICAL)</template>
+    </category>
+    
+    <category>
+        <pattern> CLOTHING </pattern>
+        <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+  <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+  <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+  <think> <set name="WATER_REQUIREMENT">NO</set></think>
+  <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+  <srai> JUMP TO CLOTHING </srai>
+</template>
+</category>
+
+<category>
+  <pattern> FOOD </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+  <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+  <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+  <think> <set name="WATER_REQUIREMENT">NO</set></think>
+  <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+  <srai> JUMP TO FOOD </srai>
+</template>
+</category>
+
+<category>
+  <pattern> WATER </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+  <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+  <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+  <think> <set name="WATER_REQUIREMENT">YES</set></think>
+  <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+  <srai> JUMP TO WATER </srai>
+</template>
+</category>
+
+<category>
+  <pattern> MEDICAL </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+    <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+    <think> <set name="WATER_REQUIREMENT">NO</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">YES</set></think>
+    <srai> JUMP TO MEDICAL </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CLOTHING FOOD </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+    <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+    <think> <set name="WATER_REQUIREMENT">NO</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+    <srai> JUMP TO FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> FOOD WATER </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+    <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+    <srai> JUMP TO FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> WATER MEDICAL </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+    <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">YES</set></think>
+    <srai> JUMP TO WATER </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CLOTHING WATER </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+    <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+    <srai> JUMP TO WATER </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CLOTHING MEDICAL </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+    <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+    <srai> JUMP TO CLOTHING </srai>
+  </template>
+</category>
+
+<category>
+  <pattern>FOOD MEDICAL</pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+    <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+    <think> <set name="WATER_REQUIREMENT">NO</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">YES</set></think>
+    <srai> JUMP TO FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CLOTHING FOOD WATER </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+    <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">NO</set></think>
+    <srai> JUMP TO FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CLOTHING WATER MEDICAL </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+    <think> <set name="FOOD_REQUIREMENT">NO</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">YES</set></think>
+    <srai> JUMP TO WATER </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> FOOD WATER MEDICAL </pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">NO</set></think>
+    <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">YES</set></think>
+    <srai> JUMP TO FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CLOTHING FOOD WATER MEDICAL</pattern>
+  <that> SELECT REQUIREMENT CLOTHING FOOD WATER MEDICAL</that>
+  <template>
+    <think> <set name="CLOTHING_REQUIREMENT">YES</set></think>
+    <think> <set name="FOOD_REQUIREMENT">YES</set></think>
+    <think> <set name="WATER_REQUIREMENT">YES</set></think>
+    <think> <set name="MEDICAL_REQUIREMENT">YES</set></think>
+    <srai> JUMP TO FOOD </srai>
+  </template>
+</category>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////// -->
+    
+    <category>
+        <pattern>JUMP TO FOOD</pattern>
+        <template>
+            <condition name = "FOOD_REQUIREMENT" value = "YES">
+             WHAT TYPE OF FOOD NEEDED? (GENERAL FOOD, BABY FOOD, CATTLE FOOD).
+         </condition>
+         
+         <condition name = "FOOD_REQUIREMENT" value = "NO">
+            <srai>JUMP TO WATER</srai>
+         </condition>
+        </template>
+    </category>
+
+    <!-- <category>
+        <pattern>*</pattern>
+        <that>PLEASE DESCRIBE THE EVENT</that>
+        <template>
+            OK. DO YOU NEED FOOD?
+        </template>
+    </category> -->
+
+   <!--  <category>
+        <pattern>YES</pattern>
+        <that>OK DO YOU NEED FOOD</that>
+        <template>
+            WHAT TYPE OF FOOD NEEDED? (GENERAL FOOD, BABY FOOD, CATTLE FOOD).
+        </template>
+    </category> -->
+    <!-- <category>
+        <pattern>GENERAL</pattern>
+        <that>WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+        <template>TYPE OF GENERAL FOOD? (RICE, WHEAT, TOOR DAL, BREAD, OTHER)
+        </template>
+    </category>
+    <category>
+        <pattern>BABY FOOD</pattern>
+        <that>WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+        <template>DO YOU NEED MILK?</template>
+    </category>
+    <category>
+        <pattern>CATTLE FOOD</pattern>
+        <that>WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+        <template><srai>JUMP TO WATER</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>RICE</pattern>
+        <that>TYPE OF GENERAL FOOD RICE WHEAT TOOR DAL BREAD OTHER</that>
+        <template>PLAESE TELL ME AMOUNT OF RICE?</template>
+    </category>
+    <category>
+        <pattern>Wheat</pattern>
+        <that>TYPE OF GENERAL FOOD RICE WHEAT TOOR DAL BREAD OTHER</that>
+        <template>AMOUNT OF EATCH TYPE?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>PLAESE TELL ME AMOUNT OF RICE</that>
+        <template>DO YOU NEED BABY FOOD?</template>
+    </category>
+
+
+    <category>
+        <pattern>YES</pattern>
+        <that>DO YOU NEED BABY FOOD</that>
+        <template>DO YOU NEED MILK?</template>
+    </category>
+    <category>
+        <pattern>YES</pattern>
+        <that>DO YOU NEED BABY FOOD</that>
+        <template>DO YOU NEED MILK?</template>
+    </category>
+    <category>
+        <pattern>NO</pattern>
+        <that>DO YOU NEED BABY FOOD</that>
+        <template>Do you know about any nearest government building (School, BDO, office, etc.)</template>
+    </category>
+
+    <category>
+        <pattern>YES</pattern>
+        <that>DO YOU NEED MILK</that>
+        <template>DO YOU NEED CERELAC</template>
+    </category>
+    <category>
+        <pattern>YES</pattern>
+        <that>DO YOU NEED CERELAC</that>
+        <template>DO YOU NEED ANY OTHER BABY FOOD?</template>
+    </category>
+    <category>
+        <pattern>NO</pattern>
+        <that>DO YOU NEED CERELAC</that>
+        <template>DO YOU NEED ANY OTHER BABY FOOD?</template>
+    </category>
+    <category>
+        <pattern>YES</pattern>
+        <that>DO YOU NEED ANY OTHER BABY FOOD</that>
+        <template>PLEASE TELL ME.</template>
+    </category>
+      <category>
+        <pattern>NO</pattern>
+        <that>DO YOU NEED ANY OTHER BABY FOOD</that>
+        <template>Do you know about any nearest government building (School, BDO, office, etc.)</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>PLEASE TELL ME</that>
+        <template>Do you know about any nearest government building (School, BDO, office, etc.)</template>
+    </category>
+
+    <category>
+        <pattern>YES</pattern>
+        <that>DO YOU KNOW ABOUT ANY NEAREST GOVERNMENT BUILDING SCHOOL BDO OFFICE ETC</that>
+        <template>
+            PLEASE TELL ME DETAILS, NAME, ADDRESS.
+        </template>
+    </category>
+    <category>
+        <pattern>NO</pattern>
+        <that>DO YOU KNOW ABOUT ANY NEAREST GOVERNMENT BUILDING SCHOOL BDO OFFICE ETC</that>
+        <template>
+                <srai> JUMP TO WATER</srai>
+        </template>
+    </category> -->
+<!-- update *********************************************************** -->
+
+    <category>
+  <pattern> GENERAL </pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+  <template>
+    <think> <set name="GENERAL">YES</set></think>
+    <think> <set name="BABY">NO</set></think>
+    <think> <set name="CATTLE">NO</set></think>
+    <srai> JUMP TO GENERAL FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> BABY </pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD </that>
+  <template>
+    <think> <set name="GENERAL">NO</set></think>
+    <think> <set name="BABY">YES</set></think>
+    <think> <set name="CATTLE">NO</set></think>
+    <srai> JUMP TO BABY FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> CATTLE </pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+  <template>
+    <think> <set name="GENERAL">NO</set></think>
+    <think> <set name="BABY">NO</set></think>
+    <think> <set name="CATTLE">YES</set></think>
+    <srai> JUMP TO CATTLE FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> GENERAL BABY </pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD </that>
+  <template>
+    <think> <set name="GENERAL">YES</set></think>
+    <think> <set name="BABY">YES</set></think>
+    <think> <set name="CATTLE">NO</set></think>
+    <srai> JUMP TO GENERAL FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> GENERAL CATTLE </pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD </that>
+  <template>
+    <think> <set name="GENERAL">YES</set></think>
+    <think> <set name="BABY">NO</set></think>
+    <think> <set name="CATTLE">YES</set></think>
+    <srai> JUMP TO GENERAL FOOD </srai>
+  </template>
+</category>
+
+<category>
+  <pattern> BABY CATTLE</pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+  <template>
+    <think> <set name="GENERAL">NO</set></think>
+    <think> <set name="BABY">YES</set></think>
+    <think> <set name="CATTLE">YES</set></think>
+    <srai> JUMP TO BABY FOOD </srai>
+  </template>
+</category>
+
+
+<category>
+  <pattern> GENERAL BABY CATTLE</pattern>
+  <that> WHAT TYPE OF FOOD NEEDED GENERAL FOOD BABY FOOD CATTLE FOOD</that>
+  <template>
+    <think> <set name="GENERAL">YES</set></think>
+    <think> <set name="BABY">YES</set></think>
+    <think> <set name="CATTLE">YES</set></think>
+    <srai> JUMP TO GENERAL FOOD </srai>
+  </template>
+</category>
+
+
+    <category>
+      <pattern> JUMP TO GENERAL FOOD </pattern>
+      
+      <template>
+      <condition name = "GENERAL" value = "YES"> AMOUNT OF RICE YOU NEED?</condition>
+      <condition name = "GENERAL" value = "NO"> <srai> JUMP TO BABY FOOD</srai></condition>
+    </template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>AMOUNT OF RICE YOU NEED</that>
+      <template> AMOUNT OF WHEAT NEEDED?</template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>AMOUNT OF WHEAT NEEDED</that>
+      <template>AMOUNT OF BREAD NEEDED?</template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>AMOUNT OF BREAD NEEDED</that>
+      <template> ANY OTHER GENERAL FOOD YOU NEED?</template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>ANY OTHER GENERAL FOOD YOU NEED</that>
+      <template> <srai>JUMP TO BABY FOOD</srai></template>
+    </category>
+
+
+    <category>
+      <pattern>JUMP TO BABY FOOD</pattern>
+      <template>
+      <condition name = "BABY" value = "YES"> AMOUNT OF MILK YOU NEED?</condition>
+      <condition name = "BABY" value = "NO"> <srai> JUMP TO CATTLE FOOD</srai></condition>
+    </template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>AMOUNT OF MILK YOU NEED</that>
+      <template> AMOUNT OF CERELAC YOU NEED?</template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>AMOUNT OF CERELAC YOU NEED</that>
+      <template> ANY OTHER BABY FOOD YOU NEED?</template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>ANY OTHER BABY FOOD YOU NEED</that>
+      <template> <srai> JUMP TO CATTLE FOOD</srai></template>
+    </category>
+
+    <category>
+      <pattern> JUMP TO CATTLE FOOD </pattern>
+      <template>
+      <condition name = "CATTLE" value = "YES">DO YOU NEED CATTLE FOOD?</condition>
+      <condition name = "CATTLE" value = "NO"> <srai> JUMP_TO_WATER</srai></condition>
+    </template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <that>DO YOU NEED CATTLE FOOD</that>
+      <template> <srai> JUMP_TO_WATER</srai></template>
+    </category>
+
+
+
+    <!--    **************************************WATER********************************************  -->
+    <category>
+        <pattern>JUMP TO WATER</pattern>
+        <template>
+            <condition name = "WATER_REQUIREMENT" value = "YES">
+                <condition name = "user_type" value = "VICTIM">
+                    AMOUNT OF DRINKING WATER YOU NEED?
+                </condition>
+                <condition name = "user_type" value = "LOCAL">
+                    TELL ME CONDITION OF DRINKING WATER NEARBY. (GOOD, MODERATE, WORST)
+            </condition>
+            <condition name = "WATER_REQUIREMENT" value = "NO">
+                <srai>JUMP TO CLOTHING</srai>
+            </condition>
+        </condition>
+        </template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>PLEASE TELL ME DETAILS NAME ADDRESS</that>
+        <template>TELL ME CONDITION OF DRINKING WATER NEARBY. (GOOD, MODERATE, WORST)</template>
+    </category>
+
+    <category>
+        <pattern>GOOD</pattern>
+        <that>TELL ME CONDITION OF DRINKING WATER NEARBY GOOD MODERATE WORST</that>
+        <template>OK. IS THERE ANY DAMAGE WATER POINT?</template>
+    </category>
+    <category>
+        <pattern>MODERATE</pattern>
+        <that>TELL ME CONDITION OF DRINKING WATER NEARBY GOOD MODERATE WORST</that>
+        <template>OK. IS THERE ANY DAMAGE WATER POINT?</template>
+    </category>
+    <category>
+        <pattern>WORST</pattern>
+        <that>TELL ME CONDITION OF DRINKING WATER NEARBY GOOD MODERATE WORST</that>
+        <template>OK. IS THERE ANY DAMAGE WATER POINT?</template>
+    </category>
+     <category>
+        <pattern>YES</pattern>
+        <that>OK IS THERE ANY DAMAGE WATER POINT</that>
+        <template>PLEASE TELL ME THE LOCATION</template>
+    </category>
+     <category>
+        <pattern>NO</pattern>
+        <that>OK IS THERE ANY DAMAGE WATER POINT</that>
+        <template>DO YOU NEED SPRIER?</template>
+    </category>
+     <category>
+        <pattern>*</pattern>
+        <that>PLEASE TELL ME LOCATION</that>
+        <template>DO YOU NEED SPRIER?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF DRINKING WATER YOU NEED</that>
+        <template>REQUIREMENT OF SANITARY MATERIAL (YES / NO)</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>REQUIREMENT OF SANITARY MATERIAL YES  NO</that>
+        <template>DO YOU NEED SPRIER?</template>
+    </category>
+     <category>
+        <pattern>YES</pattern>
+        <that>DO YOU NEED SPRIER</that>
+        <template>
+            <srai>JUMP TO CLOTHING</srai>
+        </template>
+    </category>
+     <category>
+        <pattern>NO</pattern>
+        <that>DO YOU NEED SPRIER</that>
+        <template>
+            <srai>JUMP TO CLOTHING</srai>
+        </template>
+    </category>
+    <!-- *******************clothing******************************************************** -->
+    <category>
+        <pattern>JUMP TO CLOTHING</pattern>
+        <template>
+            <condition name = "CLOTHING_REQUIREMENT" value = "YES">
+             CLOTHING TYPE? (CHILDREN, ADULT, OLD)
+         </condition>
+         
+         <condition name = "CLOTHING_REQUIREMENT" value = "NO">
+            <srai>JUMP TO MEDICAL</srai>
+         </condition>
+        </template>
+    </category>
+
+    <!-- START OF clothing category making using *_clothing_requiremnet variable -->
+    <category>
+        <pattern>CHILDREN</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">NO</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">NO</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>OLD</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">NO</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">NO</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>OLD</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">NO</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">NO</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">YES</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>CHILDREN ADULT</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">NO</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>CHILDREN OLD</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">NO</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">YES</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>ADULT OLD</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">NO</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">YES</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>CHILDREN ADULT OLD</pattern>
+        <template>
+            <think> <set name="CHILDREN_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="ADULT_CLOTHING_REQUIREMENT">YES</set></think>
+            <think> <set name="OLD_CLOTHING_REQUIREMENT">YES</set></think>
+            <srai> JUMP TO CHILDREN CLOTHING </srai>
+        </template>
+    </category>
+    <!-- FINISH OF clothing category making using *_clothing_requiremnet variable -->
+
+
+    <category>
+        <pattern>JUMP TO CHILDREN CLOTHING</pattern>
+        <template>
+            <condition name = "CHILDREN_CLOTHING_REQUIREMENT" value = "YES"> 
+                AMOUNT OF MALE CHILDREN CLOTHING REQUIRE?
+            </condition>
+            <condition name = "CHILDREN_CLOTHING_REQUIREMENT" value = "NO"> 
+                <srai>JUMP TO ADULT CLOTHING</srai>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF MALE CHILDREN CLOTHING REQUIRE</that>
+        <template>AMOUNT OF FEMALE CHILDREN CLOTHING REQUIRE?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF FEMALE CHILDREN CLOTHING REQUIRE</that>
+        <template><srai>JUMP TO ADULT CLOTHING</srai></template>
+    </category>
+    <category>
+        <pattern>JUMP TO ADULT CLOTHING</pattern>
+        <template>
+            <condition name = "ADULT_CLOTHING_REQUIREMENT" value = "YES">
+                AMOUNT OF MALE ADULT CLOTHING REQUIRE?
+            </condition>
+            <condition name = "ADULT_CLOTHING_REQUIREMENT" value = "NO"> 
+                <srai>JUMP TO OLD CLOTHING</srai>
+            </condition>
+        </template>
+    </category>
+     <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF MALE ADULT CLOTHING REQUIRE</that>
+        <template>AMOUNT OF FEMALE ADULT CLOTHING REQUIRE?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF FEMALE ADULT CLOTHING REQUIRE</that>
+        <template><srai>JUMP TO OLD CLOTHING</srai></template>
+    </category>
+    <category>
+        <pattern>JUMP TO OLD CLOTHING</pattern>
+        <template>
+            <condition name = "OLD_CLOTHING_REQUIREMENT" value = "YES"> 
+                AMOUNT OF OLD MALE CLOTHING REQUIRE?
+            </condition>
+            <condition name = "OLD_CLOTHING_REQUIREMENT" value = "NO"> 
+                <srai>JUMP TO MEDICAL</srai>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF OLD MALE CLOTHING REQUIRE</that>
+        <template>AMOUNT OF OLD FEMALE CLOTHING REQUIRE?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>AMOUNT OF OLD FEMALE CLOTHING REQUIRE</that>
+        <template><srai>JUMP TO MEDICAL</srai> </template>
+    </category>
+    
+    <!-- ****************************medical********************************************** -->
+    <category>
+        <pattern>JUMP TO MEDICAL</pattern>
+        <template>
+            <condition name = "MEDICAL_REQUIREMENT" value = "YES">
+                DOCTOR, NURSE OR ANY OTHER MEDICAL STAFF YOU NEED? 
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>DOCTOR NURSE OR ANY OTHER MEDICAL STAFF YOU NEED</that>
+        <template>WHAT ARE THE MEDICAL EQUIPMENTS YOU NEED?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>WHAT ARE THE MEDICAL EQUIPMENTS YOU NEED</that>
+        <template>DO YOU NEED AMBULANCE?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that>DO YOU NEED AMBULANCE</that>
+        <template>THAT`S ALL FOR NOW. THANK YOU.</template>
+    </category>
+
+</aiml>
